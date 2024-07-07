@@ -8,6 +8,7 @@ module PATTERN(
 //================================================================
 //   PORT DECLARATION
 //================================================================
+
 output logic clk, rst_n, in_valid;
 output logic [3:0] in_1, in_2;
 
@@ -17,18 +18,22 @@ input [4:0] out_1, out_2;
 //================================================================
 // clock
 //================================================================
+
 real	CYCLE = `CYCLE_TIME;
 always	#(CYCLE/2.0) clk = ~clk;
 
 //================================================================
 // parameters & integer
 //================================================================
+
 integer PATNUM;
 integer patcount;
 integer input_gap;
 integer i;
 integer latency;
 integer total_latency;
+
+
 //================================================================
 // logic
 //================================================================
@@ -36,9 +41,13 @@ logic [3:0] golden_in;
 logic [4:0] golden_ans_1;
 logic [4:0] golden_ans_2;
 
+
+
 //================================================================
 // initial
 //================================================================
+
+
 initial begin
 
     PATNUM = 1000;
@@ -69,9 +78,12 @@ initial begin
 	$finish;
 end
 
+
+
 //================================================================
 // task
 //================================================================
+
 task reset_task ; begin
 
 	force clk = 0;
@@ -123,7 +135,7 @@ task wait_out_valid ; begin
 
 	latency = 0;
 
-	while(out_valid !== 1'b1)begin
+	while(out_valid !== 1'b1) begin
 		@(negedge clk);
 		latency = latency + 1;
 		
@@ -155,7 +167,7 @@ task check_ans; begin
 	
 	@(negedge clk);
 
-	if(out_valid !== 1'b0)begin
+	if(out_valid !== 1'b0) begin
 		fail;
 		$display ("-----------------------------------------------------------------------------------------------------");
 		$display ("                          				FAIL!                                              			");
