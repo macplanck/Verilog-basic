@@ -13,7 +13,7 @@ output logic [4:0] out_1, out_2;
 output logic out_valid;
 
 // ----------------------------------
-//   Declare other  logic
+//   Declare other logic
 // ----------------------------------
 
 logic [4:0] out_1_comb, out_2_comb;
@@ -21,6 +21,6 @@ logic [4:0] out_1_comb, out_2_comb;
 // ----------------------------------
 //   Your Design
 // ----------------------------------
-
     
+
 endmodule
