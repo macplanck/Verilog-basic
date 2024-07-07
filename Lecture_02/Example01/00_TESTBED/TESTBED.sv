@@ -1,7 +1,7 @@
 
 `timescale 1ns/1ps
 `include "../00_TESTBED/PATTERN.sv"
-`include "../01_RTL/lec02.sv"
+`include "../01_RTL/ex01.sv"
 
 
 module TESTBED();

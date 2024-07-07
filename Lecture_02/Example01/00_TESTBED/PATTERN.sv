@@ -62,20 +62,18 @@ initial begin
 	reset_task;
 	
 	for(patcount = 0; patcount < PATNUM; patcount = patcount + 1)begin	
-
 		latency = 0;
 		delay_task;	
 		input_task;
 		wait_out_valid;
 		check_ans;
-		
 		total_latency = total_latency + latency;
 		$display("PASS PATTERN NO.%3d", patcount);
-
 	end
 
 	YOU_PASS_task;
 	$finish;
+
 end
 
 
@@ -136,6 +134,7 @@ task wait_out_valid ; begin
 	latency = 0;
 
 	while(out_valid !== 1'b1) begin
+
 		@(negedge clk);
 		latency = latency + 1;
 		
@@ -148,7 +147,9 @@ task wait_out_valid ; begin
 			#(100);
 		    $finish ;
 		end
+
 	end
+
 end endtask
 
 task check_ans; begin

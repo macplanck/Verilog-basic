@@ -21,33 +21,6 @@ logic [4:0] out_1_comb, out_2_comb;
 // ----------------------------------
 //   Your Design
 // ----------------------------------
-    
-always_comb begin
 
-    out_1_comb = 0;    // you must set default value 
-    out_2_comb = 0;    // to avoid latches
-
-    if(in_valid) begin
-        out_1_comb = in_1 + in_2;
-        out_2_comb = in_1 - in_2;
-    end
-
-end
-
-always_ff @(posedge clk, negedge rst_n) begin
-
-    if(!rst_n) begin
-        out_valid <= 0;
-        out_1 <= 0;
-        out_2 <= 0;
-    end
-
-    else begin
-        out_valid <= in_valid;
-        out_1 <= out_1_comb;
-        out_2 <= out_2_comb;
-    end
-    
-end
     
 endmodule
