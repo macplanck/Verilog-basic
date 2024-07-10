@@ -20,9 +20,7 @@
 #   Version 6
 # ------------------------------------------------
 
-
 # Initialize commands and log file location
-
 log_file="./../02_REPORT/syn.log"
 
 cmd_1="iverilog -g 2012 -o ../02_REPORT/RESULT.vvp ../00_TESTBED/TESTBED.sv"
